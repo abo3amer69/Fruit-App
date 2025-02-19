@@ -13,7 +13,7 @@ class OnBoardingPageView extends StatelessWidget {
       controller: pageController,
       children: [
         PageViewItem(
-          isVisible:true,
+          isVisible: true,
           image: Assets.assetsImagesPageViewItem1Image,
           backgroundImage: Assets.assetsImagesPageViewItem1BackgroundImage,
           subTitle:
