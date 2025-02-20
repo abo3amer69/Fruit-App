@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruit_app/core/helper_function/on_generate_routes.dart';
 import 'package:fruit_app/core/services/shared_preferences_singelton.dart';
+import 'package:fruit_app/core/utils/app_colors.dart';
 import 'package:fruit_app/features/splash/presentation/views/splash_view.dart';
 
 import 'generated/l10n.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await prefs.init();
   runApp(const FruitHup());
@@ -20,6 +21,8 @@ class FruitHup extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'Cairo',
+        scaffoldBackgroundColor: Colors.white,
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
       ),
       localizationsDelegates: [
         S.delegate,
