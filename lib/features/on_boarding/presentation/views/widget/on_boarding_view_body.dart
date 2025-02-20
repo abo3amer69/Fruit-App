@@ -1,10 +1,12 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_app/constants.dart';
+import 'package:fruit_app/core/services/shared_preferences_singelton.dart';
+
 import 'package:fruit_app/core/utils/app_colors.dart';
 import 'package:fruit_app/core/widget/custom_button.dart';
-import 'package:fruit_app/features/auth/presentation/views/login_view.dart'
-    show LoginView;
+import 'package:fruit_app/features/auth/presentation/views/login_view.dart';
+
 import 'package:fruit_app/features/on_boarding/presentation/views/widget/on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -58,7 +60,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             padding: const EdgeInsets.symmetric(horizontal: kHorizintalPadding),
             child: CustomButton(
               onPressed: () {
-                Navigator.of(context).popAndPushNamed(LoginView.routeName);
+                prefs.setBool(kIsOnBoardingViewSeen, true);
+                Navigator.of(context).popAndPushNamed(LoginView.routeName,);
               },
               text: 'ابدأ الان',
             ),
