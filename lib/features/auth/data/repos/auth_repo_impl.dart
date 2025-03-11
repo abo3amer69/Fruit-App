@@ -38,22 +38,33 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<Failure, UserEntity>> signInWithEmailAndPassword(
     String email,
     String password,
-  ) async{
+  ) async {
     try {
-      var user =await firebaseAuthServices.signInWithEmailAndPassword(
+      var user = await firebaseAuthServices.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
       return right(UserModel.fromFirebaseUser(user));
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
-    }
-    catch (e) {
+    } catch (e) {
       log(
         'Exceptio in authrepoimpl.creatUserWithEmailAndPassword ${e.toString()}',
       );
       return left(ServerFailure('لقد حدث خطأ ما . يرجى المحاولة في وقت لاحق'));
     }
-    
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      var user = await firebaseAuthServices.signInWithGoogle();
+      return right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log(
+        'Exceptio in authrepoimpl.creatUserWithEmailAndPassword ${e.toString()}',
+      );
+      return left(ServerFailure('لقد حدث خطأ ما . يرجى المحاولة في وقت لاحق'));
+    }
   }
 }
