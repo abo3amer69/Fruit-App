@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_app/core/errors/exceptions.dart';
@@ -62,7 +61,8 @@ class AuthRepoImpl extends AuthRepo {
         email: email,
         password: password,
       );
-      return right(UserModel.fromFirebaseUser(user));
+      var userEntity = await getUserData(uid: user.uid);
+      return right(userEntity);
     } on CustomException catch (e) {
       return left(ServerFailure(e.message));
     } catch (e) {
@@ -94,12 +94,11 @@ class AuthRepoImpl extends AuthRepo {
   Future<Either<Failure, UserEntity>> signInWithFacebook() async {
     User? user;
     try {
-       user = await firebaseAuthServices.signInWithFacebook();
+      user = await firebaseAuthServices.signInWithFacebook();
       var userEntity = UserModel.fromFirebaseUser(user);
       await addUserData(user: userEntity);
       return right(userEntity);
     } catch (e) {
-      
       await deletUser(user);
       log(
         'Exceptio in authrepoimpl.creatUserWithEmailAndPassword ${e.toString()}',
@@ -113,6 +112,16 @@ class AuthRepoImpl extends AuthRepo {
     await databaseServices.addData(
       path: BackendEndpoint.addUserData,
       data: user.tomap(),
+      documentId: user.uid,
     );
+  }
+
+  @override
+  Future<UserEntity> getUserData({required String uid}) async {
+    var userData = await databaseServices.getData(
+      path: BackendEndpoint.getUsersData,
+      documentId: uid,
+    );
+    return UserModel.fromjson(userData);
   }
 }
