@@ -13,6 +13,7 @@ import 'package:fruit_app/firebase_options.dart';
 import 'generated/l10n.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = CustomBlocObserver();
     await Firebase.initializeApp(
