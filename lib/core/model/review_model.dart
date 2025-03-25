@@ -1,5 +1,3 @@
-
-
 import 'package:fruit_app/core/entities/review_entity.dart';
 
 class ReviewModel {
@@ -18,9 +16,7 @@ class ReviewModel {
   });
 
   factory ReviewModel.fromEntity(ReviewEntity reviewEntity) {
-
     return ReviewModel(
-      
       name: reviewEntity.name,
       image: reviewEntity.image,
       rating: reviewEntity.rating,
@@ -31,23 +27,31 @@ class ReviewModel {
 
   factory ReviewModel.fromJson(Map<String, dynamic> json) {
     return ReviewModel(
-      
       name: json['name'],
       image: json['image'],
       rating: json['rating'],
       date: json['date'],
       reviewDescription: json['reviewDescription'],
     );
-  }  
+  }
 
-  tojson(){
+ReviewEntity  toEntity() {
+    return ReviewEntity(
+      name: name,
+      image: image,
+      rating: rating,
+      date: date,
+      reviewDescription: reviewDescription,
+    );
+  }
+
+  tojson() {
     return {
-      
-      'name':name,
-      'image':image,
-      'rating':rating,
-      'date':date,
-      'reviewDescription':reviewDescription,
+      'name': name,
+      'image': image,
+      'rating': rating,
+      'date': date,
+      'reviewDescription': reviewDescription,
     };
   }
 }

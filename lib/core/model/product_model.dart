@@ -14,7 +14,7 @@ class ProductModel {
   String? imageUrl;
   final int expirationMonths;
   final bool isOrganic;
-  final int nomberOfCalories;
+  final int numberOfCalories;
   final num averageRating = 0;
   final num ratingCount = 0;
   final int unitAmount;
@@ -24,7 +24,7 @@ class ProductModel {
     required this.sellingCount,
     required this.reviews,
     required this.expirationMonths,
-    required this.nomberOfCalories,
+    required this.numberOfCalories,
     required this.unitAmount,
     required this.name,
     required this.code,
@@ -47,7 +47,7 @@ class ProductModel {
       isFeatured: json['isFeatured'],
       imageUrl: json['imageUrl'],
       expirationMonths: json['expirationMonths'],
-      nomberOfCalories: json['nomberOfCalories'],
+      numberOfCalories: json['numberOfCalories'],
       unitAmount: json['unitAmount'],
       isOrganic: json['isOrganic'],
       reviews:
@@ -57,6 +57,24 @@ class ProductModel {
               )
               : [],
       image: File(json['image']),
+    );
+  }
+
+ProductEntity  toEntity() {
+    return ProductEntity(
+      image: image,
+
+      name: name,
+      code: code,
+      description: description,
+      price: price,
+      isFeatured: isFeatured,
+      imageUrl: imageUrl,
+      expirationMonths: expirationMonths,
+      numberOfCalories: numberOfCalories,
+      unitAmount: unitAmount,
+      isOrganic: isOrganic,
+      reviews: reviews.map((e) => e.toEntity()).toList(),
     );
   }
 
@@ -70,7 +88,7 @@ class ProductModel {
       'isFeatured': isFeatured,
       'imageUrl': imageUrl,
       'expirationMonths': expirationMonths,
-      'nomberOfCalories': nomberOfCalories,
+      'numberOfCalories': numberOfCalories,
       'unitAmount': unitAmount,
       ' isOrganic': isOrganic,
       'reviews': reviews.map((e) => e.tojson()).toList(),
