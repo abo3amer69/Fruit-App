@@ -3,9 +3,8 @@ import 'dart:io';
 import 'package:fruit_app/core/entities/product_entity.dart';
 import 'package:fruit_app/core/model/review_model.dart';
 
-
-
 class ProductModel {
+  final num sellingCount;
   final String name;
   final String code;
   final String description;
@@ -22,6 +21,7 @@ class ProductModel {
   final List<ReviewModel> reviews;
 
   ProductModel({
+    required this.sellingCount,
     required this.reviews,
     required this.expirationMonths,
     required this.nomberOfCalories,
@@ -36,30 +36,33 @@ class ProductModel {
     this.imageUrl,
   });
 
-  factory ProductModel.fromEntity(
-    ProductEntity addProductInputEntity,
-  ) {
+  factory ProductModel.fromjson(Map<String, dynamic> json) {
     return ProductModel(
+      sellingCount: json['sellingCount'],
+      name: json['name'],
+      code: json['code'],
+
+      description: json['description'],
+      price: json['price'],
+      isFeatured: json['isFeatured'],
+      imageUrl: json['imageUrl'],
+      expirationMonths: json['expirationMonths'],
+      nomberOfCalories: json['nomberOfCalories'],
+      unitAmount: json['unitAmount'],
+      isOrganic: json['isOrganic'],
       reviews:
-          addProductInputEntity.reviews
-              .map((e) => ReviewModel.fromEntity(e))
-              .toList(),
-      isOrganic: addProductInputEntity.isOrganic,
-      name: addProductInputEntity.name,
-      code: addProductInputEntity.code,
-      description: addProductInputEntity.description,
-      price: addProductInputEntity.price,
-      image: addProductInputEntity.image,
-      isFeatured: addProductInputEntity.isFeatured,
-      imageUrl: addProductInputEntity.imageUrl,
-      expirationMonths: addProductInputEntity.expirationMonths,
-      nomberOfCalories: addProductInputEntity.numberOfCalories,
-      unitAmount: addProductInputEntity.unitAmount,
+          json['reviews'] != null
+              ? List<ReviewModel>.from(
+                json['reviews'].map((e) => ReviewModel.fromJson(e)),
+              )
+              : [],
+      image: File(json['image']),
     );
   }
 
   tojson() {
     return {
+      'sellingCount': sellingCount,
       'name': name,
       'code': code,
       'description': description,
