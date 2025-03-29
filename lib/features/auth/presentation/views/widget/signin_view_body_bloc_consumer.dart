@@ -4,7 +4,7 @@ import 'package:fruit_app/core/helper_function/build_error_bar.dart';
 import 'package:fruit_app/core/widget/custom_progress_hud.dart';
 import 'package:fruit_app/features/auth/presentation/cubits/signin_scubit/signin_cubit.dart';
 import 'package:fruit_app/features/auth/presentation/views/widget/signin_view_body.dart';
-import 'package:fruit_app/features/home/presentation/views/home_view.dart';
+import 'package:fruit_app/features/home/presentation/views/main_view.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class SigninViewBodyBlocConsumer extends StatelessWidget {
@@ -15,7 +15,7 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SigninSuccess) {
-          Navigator.pushNamed(context, HomeView.routeName);
+          Navigator.pushNamed(context, MainView.routeName);
         }
         if (state is SigninFailure) {
           buildErrorBar(context, (state as SigninFailure).message);
