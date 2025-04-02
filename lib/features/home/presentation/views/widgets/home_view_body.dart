@@ -8,6 +8,8 @@ import 'package:fruit_app/features/home/presentation/views/widgets/best_selling_
 import 'package:fruit_app/features/home/presentation/views/widgets/custom_home_app_bar.dart';
 import 'package:fruit_app/features/home/presentation/views/widgets/featured_list.dart';
 
+import 'brst_selling_grid_view_bloc_builder.dart';
+
 class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
@@ -44,9 +46,11 @@ class _HomeViewBodyState extends State<HomeViewBody> {
               ],
             ),
           ),
-          BestSellingGridView(),
+          BestSellingGridViewBlocBuilder(),
         ],
       ),
     );
   }
 }
+
+
