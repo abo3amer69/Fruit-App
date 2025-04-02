@@ -15,7 +15,6 @@ ProductEntity getDummyProduct() {
     numberOfCalories: 100,
     unitAmount: 1,
     isOrganic: true,
-    image: File(''),
     reviews: [],
   );
 }
