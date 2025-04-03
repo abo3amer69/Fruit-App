@@ -22,8 +22,7 @@ class CartItem extends StatelessWidget {
             height: 92,
             decoration: BoxDecoration(color: Color(0xffF3F5F7)),
             child: CustomNetworkImage(
-              imageurl:
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyDcEEqaZC7Kq9Ib9_guDv0gJfPLt4NtmzEw&s',
+              imageurl: cartItemEntity.productEntity.imageUrl!,
             ),
           ),
           SizedBox(width: 17),
@@ -34,7 +33,10 @@ class CartItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text('بطيج', style: TextStyles.bold13),
+                    Text(
+                      cartItemEntity.productEntity.name,
+                      style: TextStyles.bold13,
+                    ),
                     Spacer(),
                     GestureDetector(
                       onTap: () {},
@@ -43,7 +45,7 @@ class CartItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '3 كم',
+                  '${cartItemEntity.calculateTotalWeight()} كم',
                   textAlign: TextAlign.right,
                   style: TextStyles.regular13.copyWith(
                     color: AppColors.secondaryColor,
@@ -55,7 +57,7 @@ class CartItem extends StatelessWidget {
                     CartItemActionButtons(),
                     Spacer(),
                     Text(
-                      '60 جنيه ',
+                      '${cartItemEntity.calculateTotalPrice()} جنيه ',
                       style: TextStyles.bold16.copyWith(
                         color: AppColors.secondaryColor,
                       ),
