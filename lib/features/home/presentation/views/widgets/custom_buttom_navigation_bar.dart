@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruit_app/core/utils/app_images.dart';
-import 'package:fruit_app/features/home/domain/entities/buttom_navigation_bsr_entity.dart';
+import 'package:fruit_app/features/home/domain/entities/buttom_navigation_bar_entity.dart';
 import 'package:fruit_app/features/home/presentation/views/widgets/navigation_bar_item.dart';
 
 class CustomButtomNavigationBar extends StatefulWidget {

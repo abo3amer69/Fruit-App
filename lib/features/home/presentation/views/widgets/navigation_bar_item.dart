@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_app/features/home/domain/entities/buttom_navigation_bsr_entity.dart';
+import 'package:fruit_app/features/home/domain/entities/buttom_navigation_bar_entity.dart';
 import 'package:fruit_app/features/home/presentation/views/widgets/active_item.dart';
 import 'package:fruit_app/features/home/presentation/views/widgets/in_active_item.dart';
 
