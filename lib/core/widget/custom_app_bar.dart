@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:fruit_app/core/utils/app_text_styles.dart';
 import 'package:fruit_app/core/widget/notification_widget.dart';
 
-AppBar buildAppBar(context, {required String title,bool showBackButton=true}) {
+AppBar buildAppBar(context, {required String title,bool showBackButton=true,bool showNotification=true}) {
   return AppBar(
     backgroundColor: Colors.white,
     actions: [
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: NotificationWidget(),
+      Visibility(
+        visible: showNotification,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: NotificationWidget(),
+        ),
       ),
     ],
     leading: Visibility(
