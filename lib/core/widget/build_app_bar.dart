@@ -2,7 +2,7 @@
 import 'package:fruit_app/core/utils/app_text_styles.dart';
 import 'package:fruit_app/core/widget/notification_widget.dart';
 
-AppBar buildAppBar() {
+AppBar buildAppBarr() {
     return AppBar(
       actions: [Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
