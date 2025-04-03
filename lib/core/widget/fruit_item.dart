@@ -3,6 +3,7 @@ import 'package:fruit_app/core/entities/product_entity.dart';
 import 'package:fruit_app/core/utils/app_colors.dart';
 import 'package:fruit_app/core/utils/app_images.dart';
 import 'package:fruit_app/core/utils/app_text_styles.dart';
+import 'package:fruit_app/core/widget/custom_network_image.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.productEntity});
@@ -30,7 +31,13 @@ class FruitItem extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 20),
-                Flexible(child: Image.network(productEntity.imageUrl!)),
+                productEntity.imageUrl != null
+                    ? Flexible(
+                      child: CustomNetworkImage(
+                        imageurl: productEntity.imageUrl!,
+                      ),
+                    )
+                    : Container(color: Colors.grey, height: 100, width: 100),
                 SizedBox(height: 24),
                 ListTile(
                   title: Text(
