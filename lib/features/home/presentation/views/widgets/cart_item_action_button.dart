@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_app/core/utils/app_colors.dart';
 import 'package:fruit_app/core/utils/app_text_styles.dart';
+import 'package:fruit_app/features/home/domain/entities/cart_item_entity.dart';
 
 class CartItemActionButtons extends StatelessWidget {
-  const CartItemActionButtons({super.key});
+  const CartItemActionButtons({super.key, required this.cartItemEntity});
+
+
+  final CartItemEntity cartItemEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +17,15 @@ class CartItemActionButtons extends StatelessWidget {
           iconColor: Colors.white,
           icon: Icons.add,
           color: AppColors.primaryColor,
-          onpressed: () {},
+          onpressed: () {
+            cartItemEntity.increaseCount()
+          },
         ),
 
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Text(
-            '3',
+            cartItemEntity.count.toString(),
             textAlign: TextAlign.right,
             style: TextStyles.bold16,
           ),
@@ -28,7 +34,9 @@ class CartItemActionButtons extends StatelessWidget {
           iconColor: Colors.grey,
           icon: Icons.remove,
           color: Color(0xffF3F5F7),
-          onpressed: () {},
+          onpressed: () {
+            cartItemEntity.decreaseCount();
+          },
         ),
       ],
     );
@@ -51,15 +59,18 @@ class CartItemActionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 24,
-      height: 24,
-      padding: const EdgeInsets.all(2),
-      decoration: ShapeDecoration(
-        color: color,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+    return GestureDetector(
+      onTap: onpressed,
+      child: Container(
+        width: 24,
+        height: 24,
+        padding: const EdgeInsets.all(2),
+        decoration: ShapeDecoration(
+          color: color,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        ),
+        child: FittedBox(child: Icon(icon, color: iconColor)),
       ),
-      child: FittedBox(child: Icon(icon, color: iconColor)),
     );
   }
 }
