@@ -9,6 +9,10 @@ class CartEntity {
     cartItems.add(cartItemEntity);
   }
 
+  removeCartItem(CartItemEntity cartItem) {
+    cartItems.remove(cartItem);
+  }
+
   double calculateTotalPrice() {
     double totalPrice = 0;
 
