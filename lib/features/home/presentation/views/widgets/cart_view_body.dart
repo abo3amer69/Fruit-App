@@ -7,6 +7,7 @@ import 'package:fruit_app/features/home/presentation/cubits/cart_cubit/cart_cubi
 import 'package:fruit_app/features/home/presentation/views/widgets/cart_header.dart';
 import 'package:fruit_app/features/home/presentation/views/widgets/cart_item.dart';
 import 'package:fruit_app/features/home/presentation/views/widgets/cart_item_list.dart';
+import 'package:fruit_app/features/home/presentation/views/widgets/custom_cart_button.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -40,7 +41,7 @@ class CartViewBody extends StatelessWidget {
             ),
 
             CartItemList(
-              cartItems: context.read<CartCubit>().cartEntity.cartItems,
+              cartItems: context.watch<CartCubit>().cartEntity.cartItems,
             ),
             SliverToBoxAdapter(
               child:
@@ -54,13 +55,10 @@ class CartViewBody extends StatelessWidget {
           left: 16,
           right: 16,
           bottom: MediaQuery.sizeOf(context).height * .07,
-          child: CustomButton(
-            onPressed: () {},
-            text:
-                'الدفع ${context.watch<CartCubit>().cartEntity.calculateTotalPrice()} جنيه ',
-          ),
+          child: CustomCartButton(),
         ),
       ],
     );
   }
 }
+
