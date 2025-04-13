@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_app/core/widget/custom_app_bar.dart';
 import 'package:fruit_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 
 class CheckoutView extends StatelessWidget {
@@ -8,6 +9,9 @@ class CheckoutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: CheckoutViewBody());
+    return Scaffold(
+      appBar: buildAppBar(context, title: 'الشحن', showNotification: false),
+      body: CheckoutViewBody(),
+    );
   }
 }
