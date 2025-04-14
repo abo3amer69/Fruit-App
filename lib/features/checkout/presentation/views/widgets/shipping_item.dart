@@ -9,56 +9,61 @@ class ShippingItem extends StatelessWidget {
     required this.supTitle,
     required this.price,
     required this.isSelected,
+    required this.onTap,
   });
 
   final String title, supTitle, price;
   final bool isSelected;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      padding: EdgeInsets.only(top: 16, left: 13, right: 28, bottom: 16),
-      clipBehavior: Clip.antiAlias,
-      decoration: ShapeDecoration(
-        color: Color(0x33D9D9D9),
-        shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: isSelected ? AppColors.primaryColor : Colors.transparent,
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        padding: EdgeInsets.only(top: 16, left: 13, right: 28, bottom: 16),
+        clipBehavior: Clip.antiAlias,
+        decoration: ShapeDecoration(
+          color: Color(0x33D9D9D9),
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: isSelected ? AppColors.primaryColor : Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(4),
           ),
-          borderRadius: BorderRadius.circular(4),
         ),
-      ),
-      child: IntrinsicHeight(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            isSelected ? ActiveShippingItemDot() : InActiveShippingItemDot(),
-            SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: TextStyles.semiBold13),
-                SizedBox(height: 6),
-                Text(
-                  supTitle,
-                  textAlign: TextAlign.right,
-                  style: TextStyles.regular13.copyWith(
-                    color: Colors.black.withOpacity(.5),
+        child: IntrinsicHeight(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              isSelected ? ActiveShippingItemDot() : InActiveShippingItemDot(),
+              SizedBox(width: 10),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title, style: TextStyles.semiBold13),
+                  SizedBox(height: 6),
+                  Text(
+                    supTitle,
+                    textAlign: TextAlign.right,
+                    style: TextStyles.regular13.copyWith(
+                      color: Colors.black.withOpacity(.5),
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              Center(
+                child: Text(
+                  price,
+                  style: TextStyles.bold13.copyWith(
+                    color: AppColors.lightPrimaryColor,
                   ),
                 ),
-              ],
-            ),
-            Spacer(),
-            Center(
-              child: Text(
-                price,
-                style: TextStyles.bold13.copyWith(
-                  color: AppColors.lightPrimaryColor,
-                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -74,7 +79,6 @@ class InActiveShippingItemDot extends StatelessWidget {
       width: 18,
       height: 18,
       decoration: ShapeDecoration(
-    
         shape: OvalBorder(side: BorderSide(width: 1, color: Color(0xff949D9E))),
       ),
     );
