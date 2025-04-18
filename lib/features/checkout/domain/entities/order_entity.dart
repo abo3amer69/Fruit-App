@@ -4,8 +4,12 @@ import 'package:fruit_app/features/home/domain/entities/cart_item_entity.dart';
 
 class OrderEntity {
   final CartEntity cartEntity;
-   bool? patWithCash;
-  final ShippingAdressEntity? shippingAdressEntity;
+  bool? patWithCash;
+  ShippingAdressEntity shippingAdressEntity;
 
-  OrderEntity(this.cartEntity, {this.patWithCash, this.shippingAdressEntity});
+  OrderEntity(
+    this.cartEntity, {
+    this.patWithCash,
+    required this.shippingAdressEntity,
+  });
 }

@@ -1,17 +1,19 @@
 class ShippingAdressEntity {
-  final String name;
-  final String phone;
-  final String adress;
-  final String city;
-  final String email;
-  final String adressDetails;
+   String? name;
+   String? phone;
+   String? adress;
+   String? city;
+   String? email;
+   String? adressDetails;
+   String ? floor;
 
   ShippingAdressEntity(
-    this.name,
+   { this.name,
     this.phone,
     this.adress,
+    this.floor,
     this.city,
     this.email,
-    this.adressDetails,
+    this.adressDetails,}
   );
 }
