@@ -7,6 +7,7 @@ import 'package:fruit_app/core/widget/custom_app_bar.dart';
 import 'package:fruit_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:fruit_app/features/checkout/domain/entities/shipping_adress_entity.dart';
 import 'package:fruit_app/features/checkout/presentation/manager/add_order_cubit/add_order_cubit.dart';
+import 'package:fruit_app/features/checkout/presentation/views/widgets/add_order_cubit_bloc_builder.dart';
 import 'package:fruit_app/features/checkout/presentation/views/widgets/checkout_view_body.dart';
 import 'package:fruit_app/features/home/domain/entities/cart_entity.dart';
 
@@ -30,7 +31,8 @@ class CheckoutView extends StatelessWidget {
             cartEntity,
             shippingAdressEntity: ShippingAdressEntity(),
           ),
-          child: CheckoutViewBody(),
+          child: AddOrderCubitBlocBuilder(
+            child: CheckoutViewBody()),
         ),
       ),
     );
