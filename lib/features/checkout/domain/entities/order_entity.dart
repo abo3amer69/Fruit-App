@@ -3,6 +3,7 @@ import 'package:fruit_app/features/home/domain/entities/cart_entity.dart';
 import 'package:fruit_app/features/home/domain/entities/cart_item_entity.dart';
 
 class OrderEntity {
+  final String uId;
   final CartEntity cartEntity;
   bool? patWithCash;
   ShippingAdressEntity shippingAdressEntity;
@@ -11,5 +12,6 @@ class OrderEntity {
     this.cartEntity, {
     this.patWithCash,
     required this.shippingAdressEntity,
+    required this.uId,
   });
 }
