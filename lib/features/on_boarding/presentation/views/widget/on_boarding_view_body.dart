@@ -61,7 +61,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: CustomButton(
               onPressed: () {
                 prefs.setBool(kIsOnBoardingViewSeen, true);
-                Navigator.of(context).popAndPushNamed(SigninView.routeName,);
+                Navigator.of(context).popAndPushNamed(SigninView.routeName);
               },
               text: 'ابدأ الان',
             ),

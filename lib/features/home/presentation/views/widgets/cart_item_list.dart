@@ -15,9 +15,7 @@ class CartItemList extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: CartItem(
-            cartItemEntity: cartItems[index],
-          ),
+          child: CartItem(cartItemEntity: cartItems[index]),
         );
       },
     );
@@ -25,15 +23,10 @@ class CartItemList extends StatelessWidget {
 }
 
 class CustomDivider extends StatelessWidget {
-  const CustomDivider({
-    super.key,
-  });
+  const CustomDivider({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Divider(
-      color: Color(0xffF1F1F5),
-      height: 22,
-    );
+    return const Divider(color: Color(0xffF1F1F5), height: 22);
   }
 }

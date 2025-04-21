@@ -31,5 +31,3 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
     );
   }
 }
-
-

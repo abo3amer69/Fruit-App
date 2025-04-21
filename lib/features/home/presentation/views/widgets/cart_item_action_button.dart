@@ -8,7 +8,6 @@ import 'package:fruit_app/features/home/presentation/cubits/cart_item_cubit/cart
 class CartItemActionButtons extends StatelessWidget {
   const CartItemActionButtons({super.key, required this.cartItemEntity});
 
-
   final CartItemEntity cartItemEntity;
 
   @override
@@ -39,7 +38,7 @@ class CartItemActionButtons extends StatelessWidget {
           color: Color(0xffF3F5F7),
           onpressed: () {
             cartItemEntity.decreaseQuanitty();
-              context.read<CartItemCubit>().updateCartItem(cartItemEntity);
+            context.read<CartItemCubit>().updateCartItem(cartItemEntity);
           },
         ),
       ],
@@ -71,7 +70,9 @@ class CartItemActionButton extends StatelessWidget {
         padding: const EdgeInsets.all(2),
         decoration: ShapeDecoration(
           color: color,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
         ),
         child: FittedBox(child: Icon(icon, color: iconColor)),
       ),

@@ -23,9 +23,11 @@ class HaveAnAccountWidget extends StatelessWidget {
           ),
 
           TextSpan(
-            recognizer: TapGestureRecognizer()..onTap = () {
-              Navigator.pop(context);
-            },
+            recognizer:
+                TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.pop(context);
+                  },
             text: 'تسجيل دخول',
             style: TextStyles.semiBold16.copyWith(
               color: AppColors.primaryColor,

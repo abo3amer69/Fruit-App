@@ -13,9 +13,7 @@ class FeaturedItemButton extends StatelessWidget {
 
       child: TextButton(
         style: TextButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
           backgroundColor: Colors.white,
         ),
         onPressed: onPressed,

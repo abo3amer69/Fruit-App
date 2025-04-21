@@ -41,7 +41,7 @@ class PageViewItem extends StatelessWidget {
               Visibility(
                 visible: isVisible,
                 child: GestureDetector(
-                  onTap: (){
+                  onTap: () {
                     prefs.setBool(kIsOnBoardingViewSeen, true);
                     Navigator.of(context).popAndPushNamed(SigninView.routeName);
                   },

@@ -36,7 +36,7 @@ class OrderSummaryWidget extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice()+30} جنية',
+                '${context.read<OrderEntity>().cartEntity.calculateTotalPrice() + 30} جنية',
                 style: TextStyles.regular13.copyWith(color: Color(0xff4E5556)),
               ),
             ],

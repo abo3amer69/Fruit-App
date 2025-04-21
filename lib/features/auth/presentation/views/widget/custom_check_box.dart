@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_app/core/utils/app_images.dart';
 
-
 import '../../../../../core/utils/app_colors.dart';
 
 class CustomCheckBox extends StatelessWidget {
-  const CustomCheckBox(
-      {super.key, required this.isChecked, required this.onChecked});
+  const CustomCheckBox({
+    super.key,
+    required this.isChecked,
+    required this.onChecked,
+  });
   final bool isChecked;
   final ValueChanged<bool> onChecked;
   @override
@@ -30,14 +32,13 @@ class CustomCheckBox extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           ),
         ),
-        child: isChecked
-            ? Padding(
-                padding: const EdgeInsets.all(2),
-                child: SvgPicture.asset(
-                  Assets.assetsImagesCheck,
-                ),
-              )
-            : const SizedBox(),
+        child:
+            isChecked
+                ? Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: SvgPicture.asset(Assets.assetsImagesCheck),
+                )
+                : const SizedBox(),
       ),
     );
   }

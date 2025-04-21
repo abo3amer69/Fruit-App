@@ -35,7 +35,7 @@ class ReviewModel {
     );
   }
 
-ReviewEntity  toEntity() {
+  ReviewEntity toEntity() {
     return ReviewEntity(
       name: name,
       image: image,

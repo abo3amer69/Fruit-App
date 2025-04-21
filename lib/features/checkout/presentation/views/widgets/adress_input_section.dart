@@ -5,15 +5,18 @@ import 'package:fruit_app/features/checkout/domain/entities/order_entity.dart';
 import 'package:provider/provider.dart';
 
 class AdressInputSection extends StatelessWidget {
-  const AdressInputSection({super.key, required this.formKey, required this.valueListenable});
+  const AdressInputSection({
+    super.key,
+    required this.formKey,
+    required this.valueListenable,
+  });
 
   final GlobalKey<FormState> formKey;
-  final  ValueListenable<AutovalidateMode> valueListenable;
+  final ValueListenable<AutovalidateMode> valueListenable;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      
       child: ValueListenableBuilder<AutovalidateMode>(
         valueListenable: valueListenable,
         builder:

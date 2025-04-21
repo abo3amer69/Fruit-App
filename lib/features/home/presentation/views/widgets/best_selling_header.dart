@@ -22,7 +22,9 @@ class BestSellingHeader extends StatelessWidget {
           Text(
             'المزيد',
             textAlign: TextAlign.center,
-            style: TextStyles.regular13.copyWith(color: const Color(0xFF949D9E)),
+            style: TextStyles.regular13.copyWith(
+              color: const Color(0xFF949D9E),
+            ),
           ),
         ],
       ),

@@ -4,7 +4,6 @@ import 'package:fruit_app/core/utils/app_colors.dart';
 import 'package:fruit_app/core/utils/app_text_styles.dart';
 import 'package:fruit_app/features/auth/presentation/views/widget/custom_check_box.dart';
 
-
 class TermsAndConditionsWidget extends StatefulWidget {
   const TermsAndConditionsWidget({super.key, required this.onChanged});
 
@@ -28,9 +27,7 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
           },
           isChecked: isTermsAccepted,
         ),
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
         Expanded(
           child: Text.rich(
             TextSpan(
@@ -47,30 +44,25 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
                     color: AppColors.lightPrimaryColor,
                   ),
                 ),
-                const TextSpan(
-                  text: ' ',
-                  style: TextStyles.semiBold13,
-                ),
+                const TextSpan(text: ' ', style: TextStyles.semiBold13),
                 TextSpan(
                   text: 'الخاصة',
                   style: TextStyles.semiBold13.copyWith(
                     color: AppColors.lightPrimaryColor,
                   ),
                 ),
-                const TextSpan(
-                  text: ' ',
-                  style: TextStyles.semiBold13,
-                ),
+                const TextSpan(text: ' ', style: TextStyles.semiBold13),
                 TextSpan(
                   text: 'بنا',
-                  style: TextStyles.semiBold13
-                      .copyWith(color: AppColors.lightPrimaryColor),
+                  style: TextStyles.semiBold13.copyWith(
+                    color: AppColors.lightPrimaryColor,
+                  ),
                 ),
               ],
             ),
             textAlign: TextAlign.right,
           ),
-        )
+        ),
       ],
     );
   }

@@ -32,9 +32,8 @@ Route onGenerateRoute(RouteSettings settings) {
     case CheckoutView.routeName:
       return MaterialPageRoute(
         builder:
-            (context) => CheckoutView(
-              cartEntity: settings.arguments as CartEntity,
-            ),
+            (context) =>
+                CheckoutView(cartEntity: settings.arguments as CartEntity),
       );
 
     default:

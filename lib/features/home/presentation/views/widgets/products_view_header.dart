@@ -28,7 +28,6 @@ class ProductsViewHeader extends StatelessWidget {
               side: const BorderSide(width: 1, color: Color(0x66CACECE)),
               borderRadius: BorderRadius.circular(4),
             ),
-        
           ),
           child: SvgPicture.asset(Assets.assetsImagesFilter2),
         ),

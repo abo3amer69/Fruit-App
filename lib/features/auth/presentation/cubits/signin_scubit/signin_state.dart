@@ -11,8 +11,6 @@ final class SigninSuccess extends SigninState {
   final UserEntity userEntity;
 
   SigninSuccess({required this.userEntity});
-
-
 }
 
 final class SigninFailure extends SigninState {

@@ -31,8 +31,7 @@ class CheckoutView extends StatelessWidget {
             cartEntity,
             shippingAdressEntity: ShippingAdressEntity(),
           ),
-          child: AddOrderCubitBlocBuilder(
-            child: CheckoutViewBody()),
+          child: AddOrderCubitBlocBuilder(child: CheckoutViewBody()),
         ),
       ),
     );

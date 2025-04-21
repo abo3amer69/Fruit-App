@@ -15,8 +15,10 @@ class PaymentItem extends StatelessWidget {
         Text('$title:', style: TextStyles.bold13),
         SizedBox(height: 8),
         Container(
-          padding: EdgeInsets.symmetric(vertical: 16,horizontal: 8),
-          decoration: AppDecoration.greyBoxDecoration, child: child),
+          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+          decoration: AppDecoration.greyBoxDecoration,
+          child: child,
+        ),
       ],
     );
   }

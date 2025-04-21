@@ -13,10 +13,10 @@ class PaymentSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 24,),
+        SizedBox(height: 24),
         OrderSummaryWidget(),
-        SizedBox(height: 16,),
-        ShippingAdressWidget(pageController: pageController,),
+        SizedBox(height: 16),
+        ShippingAdressWidget(pageController: pageController),
       ],
     );
   }

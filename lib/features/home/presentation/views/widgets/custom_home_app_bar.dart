@@ -18,7 +18,7 @@ class CustomHomeAppBar extends StatelessWidget {
         textAlign: TextAlign.right,
         style: TextStyles.regular16.copyWith(color: const Color(0xFF949D9E)),
       ),
-      subtitle:  Text(
+      subtitle: Text(
         getUser().name,
         textAlign: TextAlign.right,
         style: TextStyles.bold16,
@@ -26,5 +26,3 @@ class CustomHomeAppBar extends StatelessWidget {
     );
   }
 }
-
-

@@ -27,6 +27,4 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
       },
     );
   }
-
-  
 }

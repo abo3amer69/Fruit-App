@@ -3,8 +3,7 @@ import 'dart:io';
 import 'package:equatable/equatable.dart';
 import 'package:fruit_app/core/entities/review_entity.dart';
 
-
-class ProductEntity extends Equatable{
+class ProductEntity extends Equatable {
   final String name;
   final String code;
   final String description;
@@ -17,9 +16,9 @@ class ProductEntity extends Equatable{
   final num averageRating = 0;
   final num ratingCount = 0;
   final int unitAmount;
-  final List<ReviewEntity>reviews;
+  final List<ReviewEntity> reviews;
 
-  ProductEntity( {
+  ProductEntity({
     required this.reviews,
     required this.expirationMonths,
     required this.numberOfCalories,
@@ -33,8 +32,7 @@ class ProductEntity extends Equatable{
     this.isOrganic = false,
     this.imageUrl,
   });
-  
+
   @override
-  
   List<Object?> get props => [code];
 }

@@ -53,7 +53,8 @@ class ProductModel {
       reviews:
           json['reviews'] != null
               ? List<ReviewModel>.from(
-                json['reviews'].map((e) => ReviewModel.fromJson(e)))
+                json['reviews'].map((e) => ReviewModel.fromJson(e)),
+              )
               : [],
     );
   }

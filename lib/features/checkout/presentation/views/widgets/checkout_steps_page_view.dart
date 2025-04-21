@@ -9,12 +9,13 @@ class CheckoutStepsPageView extends StatelessWidget {
   const CheckoutStepsPageView({
     super.key,
     required this.pageController,
-    required this.formKey, required this.valueListenable,
+    required this.formKey,
+    required this.valueListenable,
   });
 
   final PageController pageController;
   final GlobalKey<FormState> formKey;
-  final  ValueListenable<AutovalidateMode> valueListenable;
+  final ValueListenable<AutovalidateMode> valueListenable;
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +35,8 @@ class CheckoutStepsPageView extends StatelessWidget {
   List<Widget> getPages() {
     return [
       ShippingSection(),
-      AdressInputSection(
-        formKey: formKey,
-      valueListenable: valueListenable,
-      ),
-      PaymentSection(
-        pageController: pageController,
-      ),
+      AdressInputSection(formKey: formKey, valueListenable: valueListenable),
+      PaymentSection(pageController: pageController),
     ];
   }
 }

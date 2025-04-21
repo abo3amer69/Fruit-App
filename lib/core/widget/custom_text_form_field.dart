@@ -7,7 +7,8 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     required this.textInputType,
     this.suffixicon,
-    this.onSaved, this.obscureText = false,
+    this.onSaved,
+    this.obscureText = false,
   });
 
   final String hintText;

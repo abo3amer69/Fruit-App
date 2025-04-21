@@ -13,12 +13,9 @@ import 'package:fruit_app/firebase_options.dart';
 import 'generated/l10n.dart';
 
 void main() async {
-  
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = CustomBlocObserver();
-    await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await prefs.init();
   setupGetit();
   runApp(const FruitHup());
